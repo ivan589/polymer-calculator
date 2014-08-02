@@ -1,0 +1,30 @@
+
+<!-- Polymer platform -->
+<link rel="import" href="../../components/polymer/polymer.html">
+
+
+<!-- Paper elements used -->
+<link rel="import" href="../../components/core-icon/core-icon.html">
+<link rel="import" href="../../components/paper-ripple/paper-ripple.html">
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+
+
+<polymer-element name="poly-calculator" attributes="theme">
+	<template>
+		<link rel="stylesheet" href="calculator.css">
+
+		<h5>Calculator theme: {{theme}}</h5>
+
+		<h3>{{total}}</h3>
+
+		<div class="btn-wrap" repeat="{{num in numbers}}">
+			<div class="btn-inner">1
+		      <paper-ripple class="circle" fit></paper-ripple>
+		    </div>
+		</div>
+
+	</template>
+
+	<script src="calculator.js"></script>
+</polymer-element>

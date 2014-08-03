@@ -7,24 +7,45 @@
 <link rel="import" href="../../components/core-icon/core-icon.html">
 <link rel="import" href="../../components/paper-ripple/paper-ripple.html">
 
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
 
 
-<polymer-element name="poly-calculator" attributes="theme">
+<!-- Custom Elements -->
+<link rel="import" href="../calculator-button/calculator-button.html">
+
+
+<polymer-element name="web-calculator" attributes="theme">
 	<template>
-		<link rel="stylesheet" href="calculator.css">
+		<link rel="stylesheet" href="web-calculator.css">
 
 		<h5>Calculator theme: {{theme}}</h5>
 
 		<h3>{{total}}</h3>
 
-		<div class="btn-wrap" repeat="{{num in numbers}}">
-			<div class="btn-inner">1
-		      <paper-ripple class="circle" fit></paper-ripple>
-		    </div>
+
+		<div id="top-operations">
+			<calculator-button content="C"  width="25%"	class="sp-ope-{{theme}}"></calculator-button>
+			<calculator-button content="#"  width="25%"	class="sp-ope-{{theme}}"></calculator-button>
+			<calculator-button content="&radic;"  width="25%"	class="sp-ope-{{theme}}"></calculator-button>
+			<calculator-button content="&divide;"  width="25%"	class="ope-{{theme}}"></calculator-button>
+		</div>
+
+		<div id="numpad">
+			<template repeat="{{num in numbers}}">
+				<calculator-button content="{{num}}" width="33.33%" class="number-{{theme}}"></calculator-button>
+			</template>
+
+			<calculator-button content="0" width="75%" class="number-{{theme}}"></calculator-button>
+			<calculator-button content="." width="25%" class="number-{{theme}}"></calculator-button>
+		</div>
+
+		<div id="right-operations">
+			<calculator-button content="x" 	class="ope-{{theme}}"></calculator-button>
+			<calculator-button content="-" 	class="ope-{{theme}}"></calculator-button>
+			<calculator-button content="+" 	class="ope-{{theme}}"></calculator-button>
+			<calculator-button content="=" 	class="ope-{{theme}}"></calculator-button>
 		</div>
 
 	</template>
 
-	<script src="calculator.js"></script>
+	<script src="web-calculator.js"></script>
 </polymer-element>

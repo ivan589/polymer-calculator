@@ -1,0 +1,43 @@
+
+<!-- Polymer platform -->
+<link rel="import" href="../../components/polymer/polymer.html">
+
+
+<!-- Paper elements used -->
+<link rel="import" href="../../components/core-icon/core-icon.html">
+<link rel="import" href="../../components/paper-ripple/paper-ripple.html">
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+
+
+<polymer-element name="calculator-button" attributes="content width">
+	<template>
+	
+		<link rel="stylesheet" href="calculator-button.css">
+
+		<div class="btn" style="width:{{width}}">
+			<div class="btn-inner">{{content}}
+		      <paper-ripple class="circle" fit></paper-ripple>
+		    </div>
+		</div>
+
+	</template>
+
+	<script>
+		Polymer({
+			width: "100%",
+
+			ready: function(){
+				console.log('button ready');
+			}
+		});
+	</script>
+</polymer-element>
+
+
+
+
+
+
+
+

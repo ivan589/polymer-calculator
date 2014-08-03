@@ -7,21 +7,20 @@ Polymer({
 	number2: 	0,
 	clear: 		true,
 	monitor: 	'0',
-	operation: 	'',
-	opManager: {},
+	opManager: 	new OperationsManager(),
 
 	ready: function(){
 		 document.querySelector('web-calculator').addEventListener('btn-tap', this.handleButtonTap);
-		 this.opManager = new OperationsManager();
+		 this.updateOperation(this.opManager.ops.empty);
 	},
 
 	handleButtonTap: function(e){
-		var btnContent = e.detail.btn;
+		var btn = e.detail.btn;
 
-		if(!isNaN(btnContent) || btnContent === '.'){
-			this.handleNumber(btnContent);
+		if(!isNaN(btn.value) || btn.value === '.'){
+			this.handleNumber(btn.value);
 		}else{
-			this.handleOperation(btnContent);
+			this.handleOperation(btn);
 		}
 	},
 
@@ -32,7 +31,7 @@ Polymer({
 			this.appendMonitor(n);
 		}
 
-		if(this.operation === ''){
+		if(this.operation.value === null){
 			this.number1 = Number(this.monitor);
 		}else{
 			this.number2 = Number(this.monitor);
@@ -41,27 +40,33 @@ Polymer({
 	},
 
 	handleOperation: function(op){
-		switch(op){
+		switch(op.value){
 			case 'C':
 				this.clearAll(); 
 				break;
 
-			case '√':
+			case 'sqr':
 				this.monitor = this.opManager.exec(op, this.number1, this.number2);
+				this.operationDone();
 				break;
 
 			case '=':
 				this.monitor = this.opManager.exec(this.operation, this.number1, this.number2);
-				this.operation = '';
+				this.updateOperation(this.opManager.ops.empty);
 				this.operationDone();		
 				break;
 
 			default:
-				if(this.number2 !== 0){
+				if(this.operation.value !== null){
+					this.monitor = this.opManager.exec(this.operation, this.number1, this.number2);
+					this.operationDone();		
+
+				}else if(this.number2 !== 0){
 					this.monitor = this.opManager.exec(op, this.number1, this.number2);
-					this.operation();
+					this.operationDone();
+
 				}
-				this.operation = op;
+				this.updateOperation(op);
 		}
 		this.clear 	= true;
 	},
@@ -72,11 +77,15 @@ Polymer({
 		this.number2 = 0;
 	},
 
+	updateOperation: function(op){
+		this.operation = op;
+	},
+
 	clearAll: function(){
 		this.number1 = 0;
 		this.number2 = 0;
 		this.updateMonitor(0);
-		this.operation = '';
+		this.operation = this.opManager.ops.empty;
 		this.clear = true;
 	},
 

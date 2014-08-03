@@ -1,37 +1,31 @@
 <style>
 
-body{
-	padding: 0;
-	margin: 0;
+
+:host{
+	padding: 30px;
 }
 
 .btn{
 	position: relative;
-	display: inline-block;
 	float: left;
 	text-align: center;
-	padding: 1em 0em;
+	padding: 1.5em 0em;
 	background-color: inherit;
 	color: inherit;
-	font-weight: 300;
 }
 
 .btn:hover{
 	cursor: pointer;
 }
 
-.btn-inner{
-	position: relative;
-	display: inline-block;
-	text-align: center;
-	font-size: 1.5em;
-	padding: 0.5em 1em;
-	background-color: inherit;
-	color: inherit;
+:host-context(.light) paper-ripple {
+	color: #fcbc74;
+	box-shadow: inset 0.1em -0.05em #c7c7c7;
 }
 
-paper-ripple {
-  color: #ffff28;
+:host-context(.dark) paper-ripple {
+	color: #a53a96;
+	box-shadow: inset 0.1em 0.1em #555;
 }
 
 </style>

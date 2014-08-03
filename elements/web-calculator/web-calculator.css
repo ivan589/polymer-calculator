@@ -1,18 +1,32 @@
 
-body{
-	padding: 0;
-	margin: 0;
+body, html{
+	height: 100%;
 }
 
 :host{
 	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	display: block;
+	width: 100%;
+	height: 100%;
 }
 
 #monitor{
-	font-size: 3em;
+	display: block;
 	background-color: #eee;
+	border-bottom: 1px solid #888;
+	box-shadow: inset 0em -2em 0.1em -2em #888;
+	font-size: 4em;
+	color: #4c4c4c;
+
 	text-align: right;
-	padding: 0.2em;
+	padding-right: 0.2em;
+}
+
+#monitorInner{
+}
+
+#panel{
 }
 
 #monitorOperation{
@@ -24,10 +38,7 @@ body{
 }
 
 #panel-center{
-	float: left;
 	width: 75%;
-	border: none;
-
 }
 
 #panel-right{
@@ -50,7 +61,6 @@ body{
 	color: #333;
 	background-color: #ddd;
 }
-
 
 
 

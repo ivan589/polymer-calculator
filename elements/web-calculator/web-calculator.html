@@ -1,11 +1,7 @@
 
 <!-- Polymer platform -->
+
 <link rel="import" href="../../components/polymer/polymer.html">
-
-
-<!-- Paper elements used -->
-<link rel="import" href="../../components/core-icon/core-icon.html">
-<link rel="import" href="../../components/paper-ripple/paper-ripple.html">
 
 <!-- Custom Elements -->
 <link rel="import" href="../calculator-button/calculator-button.html">
@@ -18,35 +14,38 @@
 	<template>
 		<link rel="stylesheet" href="web-calculator.css">
 
-		<div class="{{theme}}" on-button-clicked="handleButtonClick">
+		<div class="{{theme}}" on-button-clicked="handleButtonClick" vertical layout>
 
 			<div id="monitor">
-				{{monitor}}
-				<div id="monitorOperation">{{operation}}</div>
-			</div>
+				<div id="monitorInner">
+					{{monitor}}<div id="monitorOperation">{{operation}}</div>
+				</div>
+			</div>		
 
 
-			<div id="panel-top">
-				<calculator-button content="C"  	  width="25%"	class="top"></calculator-button>
-				<calculator-button content="#"  	  width="25%"	class="top"></calculator-button>
-				<calculator-button content="√"  width="25%"	class="top"></calculator-button>
-				<calculator-button content="÷" width="25%"	class="right"></calculator-button>
-			</div>
+			<div id="panel">
+				<div id="panel-top">
+					<calculator-button content="C"  	  width="25%"	class="top"></calculator-button>
+					<calculator-button content="#"  	  width="25%"	class="top"></calculator-button>
+					<calculator-button content="√"  width="25%"	class="top"></calculator-button>
+					<calculator-button content="÷" width="25%"	class="right"></calculator-button>
+				</div>
 
-			<div id="panel-center">
-				<template repeat="{{num in numbers}}">
-					<calculator-button content="{{num}}" width="33.33%"></calculator-button>
-				</template>
+				<div id="panel-center">
+					<template repeat="{{num in numbers}}">
+						<calculator-button content="{{num}}" width="33.33%"></calculator-button>
+					</template>
 
-				<calculator-button content="0" width="75%"></calculator-button>
-				<calculator-button content="." width="25%"></calculator-button>
-			</div>
+					<calculator-button content="0" width="66.66%"></calculator-button>
+					<calculator-button content="." width="33.33%"></calculator-button>
+				</div>
 
-			<div id="panel-right">
-				<calculator-button content="x" 	class="right"></calculator-button>
-				<calculator-button content="-" 	class="right"></calculator-button>
-				<calculator-button content="+" 	class="right"></calculator-button>
-				<calculator-button content="=" 	class="right"></calculator-button>
+				<div id="panel-right">
+					<calculator-button content="x" 	class="right"></calculator-button>
+					<calculator-button content="-" 	class="right"></calculator-button>
+					<calculator-button content="+" 	class="right"></calculator-button>
+					<calculator-button content="=" 	class="right"></calculator-button>
+				</div>
 			</div>
 
 		</div>

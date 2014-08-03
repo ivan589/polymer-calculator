@@ -7,18 +7,15 @@
 <link rel="import" href="../../components/core-icon/core-icon.html">
 <link rel="import" href="../../components/paper-ripple/paper-ripple.html">
 
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
-
 
 <polymer-element name="calculator-button" attributes="content width">
 	<template>
 	
 		<link rel="stylesheet" href="calculator-button.css">
 
-		<div class="btn" style="width:{{width}}">
-			<div class="btn-inner">{{content}}
-		      <paper-ripple class="circle" fit></paper-ripple>
-		    </div>
+		<div class="btn" style="width:{{width}}" on-tap="{{onTap}}">
+			<div class="btn-inner">{{content}}</div>
+			<paper-ripple class="" fit></paper-ripple>
 		</div>
 
 	</template>
@@ -26,9 +23,10 @@
 	<script>
 		Polymer({
 			width: "100%",
+			content: "none",
 
-			ready: function(){
-				console.log('button ready');
+			onTap: function(event, detail, sender){
+				this.fire('btn-tap', {btn: this.content});
 			}
 		});
 	</script>

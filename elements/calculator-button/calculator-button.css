@@ -1,17 +1,23 @@
 <style>
 
-
-:host {
-  font-family: 'Open Sans', sans-serif;
+body{
+	padding: 0;
+	margin: 0;
 }
 
 .btn{
+	position: relative;
+	display: inline-block;
 	float: left;
 	text-align: center;
 	padding: 1em 0em;
 	background-color: inherit;
 	color: inherit;
 	font-weight: 300;
+}
+
+.btn:hover{
+	cursor: pointer;
 }
 
 .btn-inner{
@@ -27,36 +33,5 @@
 paper-ripple {
   color: #ffff28;
 }
-
-
-/* LIGHT THEME */
-:host-context(.number-light) {
-	color: #333;
-	background-color: #eee;
-}
-:host-context(.ope-light) {
-	color: #fff;
-	background-color: #ff973b;
-}
-:host-context(.sp-ope-light) {
-	color: #333;
-	background-color: #ddd;
-}
-
-
-/* DARK THEME */
-:host-context(.number-dark) {
-	color: #fff;
-	background-color: #333;
-}
-:host-context(.ope-dark) {
-	color: #fff;
-	background-color: #db0066;
-}
-:host-context(.sp-ope-dark) {
-	color: #fff;
-	background-color: #888;
-}
-
 
 </style>

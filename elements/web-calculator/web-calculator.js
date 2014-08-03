@@ -62,17 +62,15 @@ Polymer({
 					this.number2 = 0;
 				}
 				this.operation = op;
-				this.clear 	= true;
 		}
+		this.clear 	= true;
 	},
 
 	clearAll: function(){
 		this.number1 = 0;
 		this.number2 = 0;
-
 		this.updateMonitor(0);
 		this.operation = '';
-
 		this.clear = true;
 	},
 

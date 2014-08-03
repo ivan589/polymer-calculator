@@ -11,19 +11,23 @@ body, html{
 	height: 100%;
 }
 
+div[vertical] {
+	min-height: 100vh;
+}
+
 #monitor{
 	display: block;
 	background-color: #eee;
 	border-bottom: 1px solid #888;
 	box-shadow: inset 0em -2em 0.1em -2em #888;
-	font-size: 4em;
+	font-size: 6em;
 	color: #4c4c4c;
-
 	text-align: right;
 	padding-right: 0.2em;
 }
 
 #monitorInner{
+	padding-top: 2%;
 }
 
 #panel{

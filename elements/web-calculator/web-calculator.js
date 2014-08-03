@@ -53,17 +53,23 @@ Polymer({
 			case '=':
 				this.monitor = this.opManager.exec(this.operation, this.number1, this.number2);
 				this.operation = '';
+				this.operationDone();		
 				break;
 
 			default:
 				if(this.number2 !== 0){
 					this.monitor = this.opManager.exec(op, this.number1, this.number2);
-					this.number1 = this.monitor;
-					this.number2 = 0;
+					this.operation();
 				}
 				this.operation = op;
 		}
 		this.clear 	= true;
+	},
+
+
+	operationDone: function(){
+		this.number1 = this.monitor;
+		this.number2 = 0;
 	},
 
 	clearAll: function(){

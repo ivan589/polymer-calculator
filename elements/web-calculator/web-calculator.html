@@ -1,14 +1,8 @@
 
-<!-- Polymer platform -->
-
 <link rel="import" href="../../components/polymer/polymer.html">
-
-<!-- Custom Elements -->
 <link rel="import" href="../calculator-button/calculator-button.html">
 
-
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
-
 
 <polymer-element name="web-calculator" attributes="theme">
 	<template>
@@ -16,7 +10,7 @@
 
 		<div class="{{theme}}" on-button-clicked="handleButtonClick" vertical layout>
 
-			<div id="monitor">
+			<div id="monitor" flex>
 				<div id="monitorInner">
 					{{monitor}}<div id="monitorOperation">{{operation}}</div>
 				</div>

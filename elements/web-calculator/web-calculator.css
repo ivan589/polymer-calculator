@@ -1,5 +1,16 @@
 
 
+:host(:hover){
+	cursor: pointer;
+}
+
+#monitor{
+	font-size: 3em;
+	background-color: #eee;
+	text-align: right;
+	padding: 0.2em;
+}
+
 #numpad{
 	float: left;
 	width: 75%;

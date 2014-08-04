@@ -55,7 +55,7 @@ var operationsManager = function(op){
  * @param  {Number} n
  */
 var numbersManager = function(n, force){
-	if(this.monitor.toString().indexOf('.') > -1 && n === '.') return;
+	if(this.monitor === '0' && n === '0') return;
 
 	if(this.replaceMonitorContent){
 		this.updateMonitor(n);
@@ -65,6 +65,7 @@ var numbersManager = function(n, force){
 			this.fire('monitor-limit-reached');
 			return;
 		}
+		if(this.monitor.toString().indexOf('.') > -1 && n === '.') return;
 		this.appendMonitor(n);
 	}
 

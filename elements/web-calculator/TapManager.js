@@ -47,7 +47,10 @@ var operationsManager = function(op){
  * Controller called when a number key is tap,
  * this is simply a pointer to a function that
  * grabs the context from the Polymer object definition
- * 
+ *
+ * This function controls the LIMIT_INPUTS, meaning the length
+ * of the `monitor` content in number of chars, fires
+ * `monitor-limit-reached` when true
  * 
  * @param  {Number} n
  */

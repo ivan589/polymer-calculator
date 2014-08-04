@@ -12,46 +12,42 @@
 
 			<div id="monitor" flex>
 				<div id="monitorInner">
-					{{monitor}}<div id="monitorOperation">{{operation.toStr}}</div>
+					{{monitor}}<div id="monitorOperation">{{operation.symbol}}</div>
 				</div>
 			</div>		
 
 
 			<div id="panel">
 				<div id="panel-top">
-					<calculator-button content="C" width="25%"	class="top"></calculator-button>
-					<calculator-button content="#" width="25%"	class="top"></calculator-button>
-					<calculator-button 
-						content="√" 
-						value="{{opManager.ops.sqroot.value}}"	
-						width="25%"	class="top"></calculator-button>
-					<calculator-button 
-						content="÷" 
-						value="{{opManager.ops.divide.value}}"	
-						width="25%"	class="right"></calculator-button>
+					<calculator-button symbol="C" name="clear" width="50%" class="top"></calculator-button>
+					<calculator-button symbol="√" name="sqr" width="25%"	class="top"></calculator-button>
+					<calculator-button symbol="÷" name="div" width="25%"	class="right"></calculator-button>
 				</div>
 
 				<div id="panel-center">
 					<template repeat="{{num in numbers}}">
-						<calculator-button content="{{num}}" width="33.33%"></calculator-button>
+						<calculator-button symbol="{{num}}" width="33.33%"></calculator-button>
 					</template>
 
-					<calculator-button content="0" width="66.66%"></calculator-button>
-					<calculator-button content="." width="33.33%"></calculator-button>
+					<calculator-button symbol="0" width="66.66%"></calculator-button>
+					<calculator-button symbol="." width="33.33%"></calculator-button>
 				</div>
 
 				<div id="panel-right">
-					<calculator-button content="x" 	class="right"></calculator-button>
-					<calculator-button content="-" 	class="right"></calculator-button>
-					<calculator-button content="+" 	class="right"></calculator-button>
-					<calculator-button content="=" 	class="right"></calculator-button>
+					<calculator-button symbol="x" name="tim"   class="right"></calculator-button>
+					<calculator-button symbol="-" name="sub"   class="right"></calculator-button>
+					<calculator-button symbol="+" name="sum" 	 class="right"></calculator-button>
+					<calculator-button symbol="=" name="equal" class="right"></calculator-button>
 				</div>
 			</div>
 
 		</div>
 
 	</template>
-
-	<script src="OperationsManager.js"></script>
+	
+	<script src="CalculatorConfig.js"></script>
+	<script src="MathManager.js"></script>
+	<script src="TapManager.js"></script>
 	<script src="web-calculator.js"></script>
+
 </polymer-element>

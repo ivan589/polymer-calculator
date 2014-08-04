@@ -8,13 +8,13 @@
 <link rel="import" href="../../components/paper-ripple/paper-ripple.html">
 
 
-<polymer-element name="calculator-button" attributes="content value width">
+<polymer-element name="calculator-button" attributes="symbol name width">
 	<template>
 	
 		<link rel="stylesheet" href="calculator-button.css">
 
 		<div class="btn" style="width:{{width}}" on-tap="{{onTap}}">
-			<div>{{content}}</div>
+			<div>{{symbol}}</div>
 			<paper-ripple class="" fit></paper-ripple>
 		</div>
 
@@ -25,15 +25,15 @@
 			width: 		"100%",
 
 			ready: function(){
-				if(this.value == undefined){
-					this.value = this.content;
+				if(this.name == undefined){
+					this.name = this.symbol;
 				}
 			},
 
 			onTap: function(event, detail, sender){
 				this.fire('btn-tap', {btn: {
-					toStr: 	this.content,
-					value: 	this.value
+					symbol: this.symbol,
+					name: 	this.name
 				}});
 			}
 		});

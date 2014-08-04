@@ -1,20 +1,13 @@
 /**
  * The 'web-calculator' renders a calculator composed of a numpad and 
  * a display area for the results and current operation
- *
- *
  * 
  * Example:
     <web-calculator theme="light"></web-calculator>
  *
- * 
  * Available themes: 'light', 'dark'
- * 
- * 
- * @author ivanfr26
  */
 Polymer({
-
 	//Default theme
 	theme: 'light',
 
@@ -29,116 +22,56 @@ Polymer({
 	monitor: '0',
 	replaceMonitorContent: 	true, //flag after certain operations
 
-	//Delegates the Math functions
-	opManager: 	new OperationsManager(),
+	mathMgr: new MathManager(),
 
 	/**
 	 * When `ready`, hooks a controller for the action `on-tap` of a button
-	 *
-	 * @event 		'btn-tap'
-	 * @controller 	'handleButtonTap'	
 	 */
 	ready: function(){
 		 document.querySelector('web-calculator').addEventListener('btn-tap', this.handleButtonTap);
-		 this.updateOperation(this.opManager.ops.empty);
+		 this.updateOperation(OPERATION_EMPTY);
 	},
 
 	/**
 	 * Receives the button object and delegates accordingly
 	 *
-	 * button obj in message for `on-tap` event:
-	 	{btn: {
-			symbol: this.content,
-			value: 	this.value
+		{btn: {
+			symbol: "+",
+			name: 	"sum"
 		}}
-	 *
-	 * The `symbol` is a rendered text that the browser shows, 
-	 * the `value` is a simpler string used to find the 
-	 * function. This is a fix for how different OS and
-	 * browser handle the html strings.
-	 * 
 	 */
 	handleButtonTap: function(e){
-		console.log(this.number1 + ' ' + this.number2);
-
 		var btn = e.detail.btn;
 
-		if(!isNaN(btn.value) || btn.value === '.'){
-			this.handleNumber(btn.value);
+		if(!isNaN(btn.symbol) || btn.symbol === '.'){
+			this.handleNumber(btn.symbol);
 		}else{
 			this.handleOperation(btn);
 		}
 	},
 
 	/**
-	 * When a number is tapped, this controller is called
-	 * 
+	 * When a number is tapped, delegates to numbersManager
 	 */
-	handleNumber: function(n){
-		if(this.replaceMonitorContent){
-			this.updateMonitor(n);
-		}else{
-			this.appendMonitor(n);
-		}
-
-		if(!this.opsInQueu()){
-			this.number1 = Number(this.monitor);
-		}else{
-			this.number2 = Number(this.monitor);
-		}
-
-	},
+	handleNumber: numbersManager,
 
 
 	/**
-	 * When an operation button is tapped, this controller is called
-	 * 
+	 * When an operation button is tapped, delegates to operationsManager
 	 */
-	handleOperation: function(op){
-		switch(op.value){
-			case 'C':
-				this.clearAll(); 
-				break;
-
-			case 'sqr':
-				this.updateMonitor(this.opManager.exec(op, this.number1, this.number2));
-				this.stackNumbers();
-				break;
-
-			case '=':
-				this.updateMonitor(this.opManager.exec(this.operation, this.number1, this.number2));
-				this.stackNumbers();
-				this.updateOperation(this.opManager.ops.empty);
-				break;
-
-			default:
-				if(this.opsInQueu()){
-					this.updateMonitor(this.opManager.exec(this.operation, this.number1, this.number2));
-					this.stackNumbers();
-
-				}else if(this.number2 !== 0){
-					this.updateMonitor(this.opManager.exec(op, this.number1, this.number2));
-					this.stackNumbers();
-				}
-				this.updateOperation(op);
-		}
-		this.replaceMonitorContent = true;
-	},
+	handleOperation: operationsManager,
 
 
 	/** 
-	 * 
 	 * HELPER METHODS
 	 *
-	 * This methods make the updating information easier,
+	 * This methods make updating information easier,
 	 * shorten the code neccesary for the calculator logic
-	 * 
 	 */
-
 
 	// Is there and operation in quue? 
 	opsInQueu: function(){
-		return this.operation.value !== null;
+		return this.operation.name !== OPERATION_EMPTY.name; 
 	},
 
 	// Updates the current operation to be executed
@@ -146,7 +79,7 @@ Polymer({
 		this.operation = op;
 	},
 
-	// Updated the monitor content
+	// Updated the monitor content flags for future content
 	updateMonitor: function(content){
 		this.monitor = content;
 		this.replaceMonitorContent = false;
@@ -169,7 +102,7 @@ Polymer({
 		this.number1 	= 0;
 		this.number2 	= 0;
 		this.replaceMonitorContent = true;
-		this.operation 	= this.opManager.ops.empty;
+		this.operation 	= OPERATION_EMPTY;
 	},
 
 });

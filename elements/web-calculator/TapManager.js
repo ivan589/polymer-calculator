@@ -52,21 +52,16 @@ var operationsManager = function(op){
  * @param  {Number} n
  */
 var numbersManager = function(n, force){
+	if(this.monitor.toString().indexOf('.') > -1 && n === '.') return;
 
-	if(force){
-		//dont check
+	if(this.replaceMonitorContent){
+		this.updateMonitor(n);
+
 	}else{
 		if(this.monitor.toString().length === MAX_INPUTS){
 			this.fire('monitor-limit-reached');
 			return;
 		}
-	}
-
-	if(this.monitor.toString().indexOf('.') > -1 && n === '.') return;
-
-	if(this.replaceMonitorContent){
-		this.updateMonitor(n);
-	}else{
 		this.appendMonitor(n);
 	}
 

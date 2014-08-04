@@ -101,7 +101,7 @@ Polymer({
 		aux = (aux.length <= 0) ? '0' : aux;
 
 		this.replaceMonitorContent = true;
-		this.handleNumber(aux);
+		this.handleNumber(aux, true);
 	},
 
 	// Saves the current result in number1 and clears number2

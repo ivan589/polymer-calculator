@@ -1,15 +1,19 @@
 
 var OperationsManager = function() {
 	this.ops = {
-		empty		: {toStr: '', 	value: null},
-		clear		: {toStr: 'C', 	value: 'C'},
-		equal		: {toStr: '=', 	value: '='},
 
-		sum 		: {toStr: '+', 	value: '+', 	funct: this.sum},
-		subtract	: {toStr: '-', 	value: '-', 	funct: this.subtract},
-		times		: {toStr: 'x', 	value: 'x', 	funct: this.times},
-		divide		: {toStr: '÷', 	value: 'div', 	funct: this.divide},
-		sqroot		: {toStr: '√', 	value: 'sqr', 	funct: this.sqroot}	
+		// Operators without a math function
+		empty		: {symbol: '', 		value: null},
+		clear		: {symbol: 'C', 	value: 'C'},
+		equal		: {symbol: '=', 	value: '='},
+
+
+		//Operators with math functions
+		sum 		: {symbol: '+', 	value: '+', 	funct: this.sum},
+		subtract	: {symbol: '-', 	value: '-', 	funct: this.subtract},
+		times		: {symbol: 'x', 	value: 'x', 	funct: this.times},
+		divide		: {symbol: '÷', 	value: 'div', 	funct: this.divide},
+		sqroot		: {symbol: '√', 	value: 'sqr', 	funct: this.sqroot}	
 	}; 
 }
 

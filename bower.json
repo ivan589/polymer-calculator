@@ -1,0 +1,22 @@
+{
+  "name": "polymer-calc",
+  "version": "0.0.1",
+  "authors": [
+    "Ivan Roth <ivanfr26@gmail.com>"
+  ],
+  "description": "Polymer calculator",
+  "main": "elements/web-calculator/web-calculator.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "core-elements": "Polymer/core-elements#~0.3.4",
+    "polymer": "Polymer/polymer#~0.3.4",
+    "paper-elements": "Polymer/paper-elements#~0.3.4"
+  }
+}

@@ -68,7 +68,7 @@ Polymer({
 	/**
 	 * When an operation button is tapped, delegates to operationsManager
 	 */
-	handleOperation: operationsManager,
+	handleOperation: operationsManager.exec,
 
 
 	/** 

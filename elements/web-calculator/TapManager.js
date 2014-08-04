@@ -7,41 +7,54 @@
  * 
  * @param  {OPERATION_*} op 
  */
-var operationsManager = function(op){
-	switch(op.name){
-		case 'clear':
-			this.clearAll(); 
-			break;
+var operationsManager = {
 
-		case 'back':
-			this.backMonitor();
-			break;
+	exec: function(op){
+		switch(op.name){
 
-		case 'sqr':
-			this.updateMonitor(this.mathMgr.exec(op, this.number1, this.number2));
-			this.stackNumbers();
-			break;
+			//Add here future non math oprations keys
 
-		case 'equal':
-			this.updateMonitor(this.mathMgr.exec(this.operation, this.number1, this.number2));
-			this.stackNumbers();
-			this.updateOperation(OPERATION_EMPTY);
-			break;
+			case OPERATION_CLEAR.name:
+				this.clearAll(); 
+				break;
 
-		default:
-			if(this.opsInQueu()){
+			case OPERATION_BACK.name:
+				this.backMonitor();
+				break;
+
+			case OPERATION_EQUAL.name:
 				this.updateMonitor(this.mathMgr.exec(this.operation, this.number1, this.number2));
 				this.stackNumbers();
+				this.updateOperation(OPERATION_EMPTY);
+				break;
 
-			}else if(this.number2 !== 0){
+
+			/* MATH OPERATION KEYS */
+
+			// Special: neeed only one number to execute
+			case OPERATION_SQROOT.name:
 				this.updateMonitor(this.mathMgr.exec(op, this.number1, this.number2));
 				this.stackNumbers();
-			}
-			this.updateOperation(op);
-	}
-	this.replaceMonitorContent = true;
-}
+				break;
 
+			// Math operation keys fall here, 
+			// if when adding a new key, there is no special
+			// treatment, it will go here
+			default:
+				if(this.opsInQueu()){
+					this.updateMonitor(this.mathMgr.exec(this.operation, this.number1, this.number2));
+					this.stackNumbers();
+
+				}else if(this.number2 !== 0){
+					this.updateMonitor(this.mathMgr.exec(op, this.number1, this.number2));
+					this.stackNumbers();
+				}
+				this.updateOperation(op);
+		}
+		this.replaceMonitorContent = true;
+	}
+
+};
 
 /**
  * Controller called when a number key is tap,

@@ -22,7 +22,11 @@ Polymer({
 	monitor: '0',
 	replaceMonitorContent: 	true, //flag after certain operations
 
+	//Delegates the real math function
 	mathMgr: new MathManager(),
+
+	//contains the keys definitions
+	config: Object.create(CalculatorConfig),
 
 	/**
 	 * When `ready`, hooks a controller for the action `on-tap` of a button

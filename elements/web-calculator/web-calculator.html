@@ -31,10 +31,22 @@
 
 			<div class="panel">
 				<div id="panel-top">
-					<calculator-button symbol="C" name="clear" width="25%" class="top"></calculator-button>
-					<calculator-button symbol="<" name="back" width="25%" class="top"></calculator-button>
-					<calculator-button symbol="√" name="sqr" width="25%"	class="top"></calculator-button>
-					<calculator-button symbol="÷" name="div" width="25%"	class="right"></calculator-button>
+					<calculator-button 
+						symbol="{{config.ops.OPERATION_CLEAR.symbol}}" 
+						name="{{config.ops.OPERATION_CLEAR.name}}" 
+						width="25%" class="top"></calculator-button>
+					<calculator-button 
+						symbol="{{config.ops.OPERATION_BACK.symbol}}" 
+						name="{{config.ops.OPERATION_BACK.name}}" 
+						width="25%" class="top"></calculator-button>
+					<calculator-button 
+						symbol="{{config.ops.OPERATION_SQROOT.symbol}}" 
+						name="{{config.ops.OPERATION_SQROOT.name}}" 
+						width="25%" class="top"></calculator-button>
+					<calculator-button 
+						symbol="{{config.ops.OPERATION_DIVIDE.symbol}}" 
+						name="{{config.ops.OPERATION_DIVIDE.name}}" 
+						width="25%" class="right"></calculator-button>
 				</div>
 
 				<div id="panel-center">
@@ -47,10 +59,22 @@
 				</div>
 
 				<div id="panel-right">
-					<calculator-button symbol="x" name="tim"   class="right"></calculator-button>
-					<calculator-button symbol="-" name="sub"   class="right"></calculator-button>
-					<calculator-button symbol="+" name="sum" 	 class="right"></calculator-button>
-					<calculator-button symbol="=" name="equal" class="right"></calculator-button>
+					<calculator-button 
+						symbol="{{config.ops.OPERATION_TIMES.symbol}}" 
+						name="{{config.ops.OPERATION_TIMES.name}}" 
+						class="right"></calculator-button>
+					<calculator-button 
+						symbol="{{config.ops.OPERATION_SUBTRACT.symbol}}" 
+						name="{{config.ops.OPERATION_SUBTRACT.name}}" 
+						class="right"></calculator-button>
+					<calculator-button 
+						symbol="{{config.ops.OPERATION_SUM.symbol}}" 
+						name="{{config.ops.OPERATION_SUM.name}}" 
+						class="right"></calculator-button>
+					<calculator-button 
+						symbol="{{config.ops.OPERATION_EQUAL.symbol}}" 
+						name="{{config.ops.OPERATION_EQUAL.name}}" 
+						class="right"></calculator-button>
 				</div>
 			</div>
 

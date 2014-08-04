@@ -9,6 +9,8 @@
  * 
  */
 
+var MAX_INPUTS = 10;
+
 var OPERATION_EMPTY = {symbol: '', 	name: 'empty'};
 var OPERATION_CLEAR = {symbol: 'C', name: 'clear'};
 var OPERATION_CLEAR = {symbol: '<', name: 'back' };

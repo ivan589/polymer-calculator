@@ -30,6 +30,11 @@ Polymer({
 	ready: function(){
 		 document.querySelector('web-calculator').addEventListener('btn-tap', this.handleButtonTap);
 		 this.updateOperation(OPERATION_EMPTY);
+
+		 //show toast when limit is reached
+		 document.querySelector('web-calculator').addEventListener('monitor-limit-reached', function(){
+		 	this.$.toastMonitorLimit.show();
+		 })
 	},
 
 	/**
@@ -93,7 +98,10 @@ Polymer({
 	// Deletes the last char in the monitor
 	backMonitor: function(){
 		var aux = this.monitor.toString().slice(0, -1);
-		this.monitor = (aux.length <= 0) ? 0 : aux;
+		aux = (aux.length <= 0) ? '0' : aux;
+
+		this.replaceMonitorContent = true;
+		this.handleNumber(aux);
 	},
 
 	// Saves the current result in number1 and clears number2

@@ -10,12 +10,10 @@ body, html{
 	height: 100%;
 }
 
-
 /* Polymer known issue for vertical layout */
 div[vertical] {
 	min-height: 100vh;
 }
-
 
 #monitor{
 	display: block;

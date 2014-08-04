@@ -1,8 +1,21 @@
+<!--
 
+	<web-calculator theme="light"> </web-calculator>
+
+-->
+
+<!-- polymer lib -->
 <link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/paper-toast/paper-toast.html">
+
+
+<!-- custom elements -->
 <link rel="import" href="../calculator-button/calculator-button.html">
 
+
+<!-- not necessary, but looks good -->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+
 
 <polymer-element name="web-calculator" attributes="theme">
 	<template>
@@ -16,8 +29,7 @@
 				</div>
 			</div>		
 
-
-			<div id="panel">
+			<div class="panel">
 				<div id="panel-top">
 					<calculator-button symbol="C" name="clear" width="25%" class="top"></calculator-button>
 					<calculator-button symbol="<" name="back" width="25%" class="top"></calculator-button>
@@ -43,6 +55,9 @@
 			</div>
 
 		</div>
+
+		<paper-toast id="toastMonitorLimit" text="You've reached the max :), sorry about that"></paper-toast>
+
 
 	</template>
 	

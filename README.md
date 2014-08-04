@@ -11,7 +11,7 @@ Polymer depencies managed with bower.
 	<li><code>python -m SimpleHTTPServer</code></li>
 </ol>
 
-<br /><br />
+<br />
 Or you can <a href="https://drive.google.com/file/d/0BxStNEodgWqERS1zRHRjdlBSZDQ/edit?usp=sharing">download the stand alone zip file</a>, which already contains the Polymer dependecies.
 
 <ol>

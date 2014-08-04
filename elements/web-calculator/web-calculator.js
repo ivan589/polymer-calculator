@@ -90,6 +90,12 @@ Polymer({
 		this.monitor = this.monitor + '' + content;
 	},
 
+	// Deletes the last char in the monitor
+	backMonitor: function(){
+		var aux = this.monitor.toString().slice(0, -1);
+		this.monitor = (aux.length <= 0) ? 0 : aux;
+	},
+
 	// Saves the current result in number1 and clears number2
 	stackNumbers: function(){
 		this.number1 = Number(this.monitor);

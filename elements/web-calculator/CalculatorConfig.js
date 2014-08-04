@@ -11,6 +11,7 @@
 
 var OPERATION_EMPTY = {symbol: '', 	name: 'empty'};
 var OPERATION_CLEAR = {symbol: 'C', name: 'clear'};
+var OPERATION_CLEAR = {symbol: '<', name: 'back' };
 var OPERATION_EQUAL = {symbol: '=', name: 'equal'};
 
 var OPERATION_SUM 		= {symbol: '+', name: 'sum'};

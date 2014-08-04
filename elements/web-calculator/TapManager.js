@@ -13,6 +13,10 @@ var operationsManager = function(op){
 			this.clearAll(); 
 			break;
 
+		case 'back':
+			this.backMonitor();
+			break;
+
 		case 'sqr':
 			this.updateMonitor(this.mathMgr.exec(op, this.number1, this.number2));
 			this.stackNumbers();
@@ -48,6 +52,8 @@ var operationsManager = function(op){
  * @param  {Number} n
  */
 var numbersManager = function(n){
+	if(this.monitor.toString().indexOf('.') > -1 && n === '.') return;
+
 	if(this.replaceMonitorContent){
 		this.updateMonitor(n);
 	}else{
@@ -59,5 +65,4 @@ var numbersManager = function(n){
 	}else{
 		this.number2 = Number(this.monitor);
 	}
-
 }

@@ -12,7 +12,7 @@ Polymer depencies managed with bower.
 </ol>
 
 <br />
-Or you can <a href="https://drive.google.com/file/d/0BxStNEodgWqERS1zRHRjdlBSZDQ/edit?usp=sharing">download the stand alone zip file</a>, which already contains the Polymer dependecies.
+Or you can <a href="https://drive.google.com/file/d/0BxStNEodgWqEOUowSnpnb1k1ZVE/edit?usp=sharing">download the stand alone zip file</a>, which already contains the Polymer dependecies. (web-calculator_20140804_01.zip) 
 
 <ol>
 	<li><code>cd web-calculator</code></li>
